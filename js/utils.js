@@ -65,7 +65,9 @@ const shortcuts = {
 
   resultContainerQuerySelector: 'div.gs_r, div.g, li, td',
   navigationContainerQuerySelector: 'div[role="navigation"] table',
-  navigationLinksAndSuggestedSearchesQuerySelector: 'div[role="navigation"] table a, #botstuff a',
+  navigationLinksAndSuggestedSearchesQuerySelector: 'div[role="navigation"] table a, #botstuff a' + 
+    // 「関連性の高い検索」を条件から外す
+    ':not(#bres a)',
 
   saveOptions: function(options, callback) {
     chrome.storage.sync.set(options, callback);
@@ -157,7 +159,9 @@ const shortcuts = {
 
     // Scroll the entire result container into view if it's not already.
     const rect = target.container.getBoundingClientRect();
-    const offsetY = rect.bottom - window.innerHeight;
+
+    // ページの下部200pxを残してスクロールする
+    const offsetY = rect.bottom - (window.innerHeight - 200);
     if (offsetY > 0) {
       window.scrollBy(0, offsetY);
     }
