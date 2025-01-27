@@ -35,6 +35,7 @@ body.useSimpleHighlight {
       transition: ease-out 0.1s;
       white-space: nowrap;    
     }
+    /* 矢印アイコン */
     a:focus-visible::before {
       position: absolute;
       right: 100%;
@@ -45,9 +46,12 @@ body.useSimpleHighlight {
       width: 16px;
       height: 16px;
       content: "";
+    }
   }
 }
 
-div[role="navigation"] table a:focus {
+div[role="navigation"] table a:focus-visible {
   text-decoration: underline;
+  /* navigation のリンクは右に移動しない */
+  transform: none !important;
 }
