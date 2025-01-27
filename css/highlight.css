@@ -27,14 +27,6 @@ body.useFancyHighlight .activeSearchResultContainer img {
 body.useSimpleHighlight {
   /* 無限スクロールの2ページ目以降は #botstuff で囲まれる */
   #search, #botstuff {
-    a:focus-visible {
-      outline: 0;
-      position: relative;
-      display: inline-block;
-      transform: translate(20px, 0);
-      transition: ease-out 0.1s;
-      white-space: nowrap;    
-    }
     /* 矢印アイコン */
     a:focus-visible::before {
       position: absolute;
@@ -51,7 +43,6 @@ body.useSimpleHighlight {
 }
 
 div[role="navigation"] table a:focus-visible {
+  position: relative;
   text-decoration: underline;
-  /* navigation のリンクは右に移動しない */
-  transform: none !important;
 }
