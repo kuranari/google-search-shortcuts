@@ -63,7 +63,7 @@ const shortcuts = {
     // hidden ancestor element.
     ':not([aria-hidden="true"] a)',
 
-  resultContainerQuerySelector: 'div.gs_r, div.g, li, td',
+  resultContainerQuerySelector: 'div.gs_r, div.g, li, td, .MjjYud',
   navigationContainerQuerySelector: 'div[role="navigation"] table',
   navigationLinksAndSuggestedSearchesQuerySelector: 'div[role="navigation"] table a, #botstuff a' + 
     // 「関連性の高い検索」を条件から外す
@@ -83,6 +83,7 @@ const shortcuts = {
 
   getVisibleResults: function() {
     const containers = [];
+
     return [
       // Main items
       ...Array.from(document.querySelectorAll(this.visibleResultsQuerySelector)).map(element => ({
